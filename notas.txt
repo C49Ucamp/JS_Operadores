@@ -1,24 +1,16 @@
+JSON -> POO
 
-2 + 2 = 4
+"llave" : "valor"
 
-x = 2; 
-x -= 3; 
-
-2 - 3 = 1
-
-
-=== 
-(3 iguales) -> "Estrictamente igual" 
-
-
-==
-(2 iguales) -> "Exactamente igual" -> hawaiana == hawaina
-
-
-= 
-(1 igual) -> let x = 5; 
-
-
-!=  -> "No es igual"
-
-!== -> "No es estructamente igual"
+banana = {
+"tipo": "dominico", 
+ {
+    "tipoCascara": "amarilla clara", 
+    "tamaño" : "pequeño"
+ }, 
+ "tipo": "manzano",
+ {
+    "tipoCascara": "roja", 
+    "tamaño" : "grande"
+ }
+}

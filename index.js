@@ -1,59 +1,38 @@
-
 console.log("Hola mundo")
 
-let diaHoy = 22
-let diaAyer = 21
-let diaMañana = 23
-let mesHoy = 7
-let mesAnterior = 6
-let comparacion
+// 1, 2, 3
+let canasta = ["banana","manzana","mango","fresa"]
+//0, 1, 2, 3
+console.log(canasta.length)
 
-comparacion = diaHoy > diaAyer; 
-document.write("Resultado:"+ comparacion + "</br>"); 
+let escoger = canasta[2]
+console.log("escogimos:", escoger)
 
+canasta.forEach((elemento, indice, array) =>
+  console.log(elemento,indice)
+)
 
-comparacion = mesHoy == mesAnterior; 
-// comparacion = diaMañana > diaMañana 
+// canasta.forEach(function(elemento, indice, array){
+//   console.log("Sin Arrow function:",elemento,indice)
+// } 
+// )
 
- document.write("Resultado:"+ comparacion + "</br>")
+let valores = [1, 3, 34, 56, 2]
+console.log("Antes del function: ",valores)
 
+ function comparar(a, b){
+  console.log("Aqui funcion")
+  return a - b
+ }
 
-
-// (valor1 , valor2, valor 3) Parametros
-// Si el primer valor es true, devuelve true. Siempre y cuando ambos sean true. Y si no, devuelve false.
-comparacion = (diaHoy > diaAyer) && (mesHoy == mesAnterior) 
-// comparacion = true y false
-document.write("Resultado" + comparacion + "</br>")
-
-//S el primer valor es true, devuelve true. Si el primer valor es false, retorna false. 
-comparacion = (diaHoy > diaAyer) || (mesHoy == mesanterior)
-document.write("Resultado" + comparacion + "</br>")
-
-
-let nota = 5;
-console.log( "En mi examen saque: " + nota)
-
-//Si nota es menor o igual a 5  ENTONCES reprobé
-// if(nota <= 5) {
-//     calificacion = "Reprobe";
-// } else {
-//     calificacion = "Aprobe"; 
-// }
-
-// console.log("Recibí una nota de: ", calificacion)
-
-// Operador ternario: (condicion ? verdaro : falso)
-let calificacion = nota < 5 ? "reprobe" : "aprobado"; 
-
-console.log("Recibí una nota de: ", calificacion)
+ valores.sort(comparar)
+ console.log("Despues del function", valores) 
 
 
+// console.log(comparar)
+// console.log("a",a)
 
-i = 0; // Inicialización de la variable contador
- 
-// Condición: Mientras la variable contador sea menor de 5
-while (i < 6){
-  console.log("Valor de i:", i);
-  i = i + 1; // Incrementamos el valor de i
-}
+// Si devuelve -1 entonces "a" se va a situar en un indice menor que "b"
+// Si devuelve 1, entonces "b" se va a situar en indice menor que "a"
+// Si devuelve 0, entonces no hay cambios en los valores 
 
