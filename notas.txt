@@ -1,16 +1,5 @@
-JSON -> POO
-
-"llave" : "valor"
-
-banana = {
-"tipo": "dominico", 
- {
-    "tipoCascara": "amarilla clara", 
-    "tamaño" : "pequeño"
- }, 
- "tipo": "manzano",
- {
-    "tipoCascara": "roja", 
-    "tamaño" : "grande"
- }
-}
+1.- Definir que variable va a contener estos libros 
+2.- Definir la función que va a realizar para el prestamo de estos libros 
+3.- Definir el prestamo de los libros 
+4.- Añadir una funcion que añada esos libros 
+5.- Añadar una funcion que imprima el valor del prestamo de esos libros 

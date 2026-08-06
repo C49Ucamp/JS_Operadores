@@ -1,38 +1,54 @@
-console.log("Hola mundo")
+class Rectangulo {
+  constructor(alto,ancho){
+    this.alto = alto;
+    this.ancho = ancho; 
+  }
 
-// 1, 2, 3
-let canasta = ["banana","manzana","mango","fresa"]
-//0, 1, 2, 3
-console.log(canasta.length)
+  get rectangulo(){
+     return this.calculoArea();
+  }
 
-let escoger = canasta[2]
-console.log("escogimos:", escoger)
+  calculoArea(){
+    return this.alto * this.ancho; 
+  }
+}
 
-canasta.forEach((elemento, indice, array) =>
-  console.log(elemento,indice)
-)
+const rec = new Rectangulo(20,10); 
 
-// canasta.forEach(function(elemento, indice, array){
-//   console.log("Sin Arrow function:",elemento,indice)
-// } 
-// )
-
-let valores = [1, 3, 34, 56, 2]
-console.log("Antes del function: ",valores)
-
- function comparar(a, b){
-  console.log("Aqui funcion")
-  return a - b
- }
-
- valores.sort(comparar)
- console.log("Despues del function", valores) 
+console.log(rec.rectangulo); 
 
 
-// console.log(comparar)
-// console.log("a",a)
+class Animal {
+  constructor(nombre){
+    this.nombre = nombre;
+  }
 
-// Si devuelve -1 entonces "a" se va a situar en un indice menor que "b"
-// Si devuelve 1, entonces "b" se va a situar en indice menor que "a"
-// Si devuelve 0, entonces no hay cambios en los valores 
+  get Nombre(){
+    return this.llamar(); 
+  }
+
+  llamar(){
+    console.log("Estoy llamando a:" + this.nombre);
+  }
+}
+
+class Perro extends Animal {
+constructor(nombre, raza){
+super(nombre)
+this.raza = raza; 
+}
+
+ladra(){
+ super.llamar();
+ console.log(`${this.raza} es muy bonito`)
+}
+}
+
+const miPerro = new Perro("Rex", "Pastor Alemán");
+miPerro.ladra(); 
+
+
+
+// const miPerro = new Animal("Firulais")
+// console.log(miPerro.Firulais); 
 
