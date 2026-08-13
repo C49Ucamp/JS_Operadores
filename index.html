@@ -7,7 +7,28 @@
 </head>
 <body>
     
+<h1>Conversor de monedas</h1>
 
+<label for="pesos">Convertir a pesos:</label>
+<input type="text" id="pesos">
+<input type="button" onclick="pesos()" value="Enviar">
+
+<p id="resultado">Dolares:</p>
+
+<!-- Onchange--->
+
+<label for="nombre"> Ingresa tu nombre</label>
+<input type="text" id="nombre">
+
+<p id="mensaje">Mensaje: No has ingresado tu nombre</p>
+
+<div class="formulario">
+    <label for="adivina"> Adivina el numero:</label>
+    <input type="text" id="adivina" class="adivina">
+    <input type="submit" value="Enviar adivinación" class="enviaradivina" id="enviaradivina" onclick="adivina()">
+</div>
+
+<p id="result"></p>
 
 <script src="index.js" ></script>
 </body>
