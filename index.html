@@ -6,29 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    
-<h1>Conversor de monedas</h1>
+  
+<label for="marca">Marca del coche:</label>   
+<input type="text" id="marca">
 
-<label for="pesos">Convertir a pesos:</label>
-<input type="text" id="pesos">
-<input type="button" onclick="pesos()" value="Enviar">
+<label for="modelo">Modelo del coche:</label>   
+<input type="text" id="modelo">
 
-<p id="resultado">Dolares:</p>
+<label for="anio">Año del coche::</label>   
+<input type="number" id="anio">
 
-<!-- Onchange--->
+<input type="button" onclick="guardarCoches()" value="Enviar">
 
-<label for="nombre"> Ingresa tu nombre</label>
-<input type="text" id="nombre">
-
-<p id="mensaje">Mensaje: No has ingresado tu nombre</p>
-
-<div class="formulario">
-    <label for="adivina"> Adivina el numero:</label>
-    <input type="text" id="adivina" class="adivina">
-    <input type="submit" value="Enviar adivinación" class="enviaradivina" id="enviaradivina" onclick="adivina()">
-</div>
-
-<p id="result"></p>
+<p id="lista"></p>
 
 <script src="index.js" ></script>
 </body>

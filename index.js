@@ -1,38 +1,80 @@
 console.log("Hola mundo"); 
 
-function pesos(){
-  let pesos = document.getElementById("pesos").value
-  let dolar = 17
-  let res = document.getElementById("resultado")
+let coches = [
+ {
+  marca: "Toyota",
+  modelo: "Corolla", 
+  anio: 2015
+ }, 
+  {
+  marca: "Nissan",
+  modelo: "Versa", 
+  anio: 2022
+ }, {
+  marca: "Chevrolet",
+  modelo: "Aveo", 
+  anio: 2027
+ }
+]
 
-  res.innerHTML = "Dolares: " + (pesos / dolar)
+localStorage.setItem("lista", JSON.stringify(coches))
+
+let recibirCoches = localStorage.getItem("lista")
+console.log(recibirCoches)
+console.log(typeof(recibirCoches))
+console.log("----------")
+let objeto = JSON.parse(recibirCoches)
+console.log(objeto)
+
+
+function guardarCoches(){
+
+ let marca = document.getElementById("marca").value;
+ let modelo = document.getElementById("modelo").value;
+  let anio  = document.getElementById("anio").value;
+
+    let inputValues = ({
+    "marca": marca, 
+    "modelo": modelo, 
+    "anio": anio 
+  })
+
+
+  console.log("Entrada a guardar datos")
+
+  let datos = JSON.parse(localStorage.getItem("lista")) ? JSON.parse(localStorage.getItem("lista")) : []
+
+  console.log(datos)
+
+  localStorage.setItem("lista", JSON.stringify(datos))
+
+  datos.push(inputValues)
+
+
+  // let miscoches = localStorage.setItem("lista", JSON.stringify(coches))
+  // let cochesObj = JSON.parse(miscoches)
+
+
+  recuperarDatos()
+  
 }
 
+function recuperarDatos(){
+  console.log("Entrada a recuperar datos")
+  if((localStorage.marca != undefined) && (localStorage.modelo != undefined) && (localStorage.anio !=undefined)){
+    let lista = document.getElementById("lista")
+    let datos = JSON.parse(localStorage.getItem("lista")) ? JSON.parse(localStorage.getItem("lista")) : []
+    lista.innerHTML = ''
+    datos.forEach(element => {
+       console.log(element)
+       lista.innerHTML += `
+       <p> ${element.marca}</p>
+       <p> ${element.modelo}</p>
+       <p> ${element.anio}</p>
+       `
+    });
 
-document.addEventListener('DOMContentLoaded', function(){
-  let nombre = document.getElementById("nombre")
-  let mensaje = document.getElementById("mensaje")
-
-  nombre.onchange = function(){
-    mensaje.textContent = "Mensaje: Tu nombre es " + nombre.value;
-  }
-} )
-
-let y = Math.floor(Math.random() * 10 + 1);
-let adivinar = 1; 
-
-function adivina(){
-  let x = document.getElementById("adivina").value;
-  if(x == y){
-    console.log("acertaste"+ x + "=" + y)
-    document.getElementById("result").innerHTML = "¡Acertaste!"
-  } else if (x > y){
-    adivinar++;
-    console.log("Intenta con un número más pequeño"+ x + "=" + y);
-    document.getElementById("result").innerHTML = "Intenta un número más pequeño"
   } else {
-    adivinar++;
-    console.log("Intenta un número más grande"+ x + "=" + y)
-    document.getElementById("result").innerHTML = "Intenta un número más grande"
+    document.getElementById("lista").innerHTML = "No se han agregado coches"
   }
 }
