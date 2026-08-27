@@ -1,4 +1,4 @@
-console.log("Hola mundo"); 
+// console.log("Hola mundo"); 
 
 let coches = [
  {
@@ -20,40 +20,46 @@ let coches = [
 localStorage.setItem("lista", JSON.stringify(coches))
 
 let recibirCoches = localStorage.getItem("lista")
-console.log(recibirCoches)
-console.log(typeof(recibirCoches))
-console.log("----------")
+// console.log(recibirCoches)
+// console.log(typeof(recibirCoches))
+// console.log("----------")
 let objeto = JSON.parse(recibirCoches)
-console.log(objeto)
+// console.log(objeto)
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  console.log("Entrada - Mostrar la lista de coches")
+  recuperarDatos()
+})
 
 
 function guardarCoches(){
-
+  console.log("Entrada a guardar datos")
  let marca = document.getElementById("marca").value;
  let modelo = document.getElementById("modelo").value;
-  let anio  = document.getElementById("anio").value;
+ let anio  = document.getElementById("anio").value;
 
-    let inputValues = ({
+  let inputValues = ({
     "marca": marca, 
     "modelo": modelo, 
     "anio": anio 
   })
 
-
-  console.log("Entrada a guardar datos")
-
-  let datos = JSON.parse(localStorage.getItem("lista")) ? JSON.parse(localStorage.getItem("lista")) : []
-
-  console.log(datos)
-
-  localStorage.setItem("lista", JSON.stringify(datos))
+  let datos =  JSON.parse(localStorage.getItem("lista")) || [];
 
   datos.push(inputValues)
 
+  console.log("datos enviados desde el push", datos)
 
-  // let miscoches = localStorage.setItem("lista", JSON.stringify(coches))
-  // let cochesObj = JSON.parse(miscoches)
+  localStorage.setItem("lista", JSON.stringify(datos))
 
+  console.log("datos después del localStorage", datos)
+
+ 
+  //Limpiar campos
+  document.getElementById("marca").value = '';
+   document.getElementById("modelo").value = '';
+   document.getElementById("anio").value = ''; 
 
   recuperarDatos()
   
@@ -61,20 +67,38 @@ function guardarCoches(){
 
 function recuperarDatos(){
   console.log("Entrada a recuperar datos")
-  if((localStorage.marca != undefined) && (localStorage.modelo != undefined) && (localStorage.anio !=undefined)){
+
+   
     let lista = document.getElementById("lista")
-    let datos = JSON.parse(localStorage.getItem("lista")) ? JSON.parse(localStorage.getItem("lista")) : []
+   
+    let datos =  JSON.parse(localStorage.getItem("lista")) || [];
+    console.log("datos localStorage en Recuperar Datos", datos)
     lista.innerHTML = ''
+
     datos.forEach(element => {
-       console.log(element)
+  
        lista.innerHTML += `
-       <p> ${element.marca}</p>
-       <p> ${element.modelo}</p>
-       <p> ${element.anio}</p>
+
+       <table class="table">
+  <thead>
+    <tr>
+    <th scope="col">#</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Año</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>${element.marca}</td>
+      <td>${element.modelo}</td>
+       <td>${element.anio}</td>
+    </tr>
+  </tbody>
+</table>
        `
     });
 
-  } else {
-    document.getElementById("lista").innerHTML = "No se han agregado coches"
-  }
+
 }
